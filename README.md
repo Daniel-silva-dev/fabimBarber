@@ -1,16 +1,68 @@
-# React + Vite
+#💈 Fabiin Barber
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação front-end desenvolvida para gerenciamento de agendamentos de uma barbearia. O projeto foi construído com React e Vite, priorizando componentização, controle de estado e renderização dinâmica de dados.
 
-Currently, two official plugins are available:
+## 🧩 Stack Tecnológica
+- React.js
+- Vite
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Git / GitHub
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Funcionalidades
+- Renderização dinâmica de agendamentos via `Array.map`
+- Separação de dados em módulo externo (`db.js`)
+- Exibição de informações em colunas fixas
+- Formulário controlado com `useState`
+- Seleção de horários pré-definidos pelo sistema
+- Renderização condicional para estado vazio
+- Estilização modular por componente
 
-## React Compiler
+## 🧠 Conceitos Técnicos Aplicados
+- Componentização funcional
+- Props para comunicação entre componentes
+- Estado local com `useState`
+- Renderização condicional com operador ternário
+- Manipulação de eventos (`onSubmit`, `onChange`)
+- Estrutura de projeto baseada em responsabilidades
+- Controle de versionamento com Git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Arquitetura do Projeto
+src/
+├─ components/
+│ ├─ Header.jsx # Renderização da lista de agendamentos
+│ └─ Form.jsx # Formulário controlado
+├─ componentsStyle/
+│ ├─ header.css
+│ └─ form.css
+├─ db.js # Fonte inicial de dados
+├─ App.jsx # Componente raiz
+└─ main.jsx # Ponto de entrada da aplicação
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ▶️ Execução Local
+```bash
+npm install
+npm run dev
+Aplicação disponível em:
+
+
+http://localhost:5173
+🧪 Possíveis Evoluções
+Persistência de dados com Firebase
+
+Validação de formulário
+
+Componentização de horários
+
+Integração com WhatsApp
+
+Deploy com GitHub Pages ou Vercel
+
+👨‍💻 Autor
+Daniel Silva
+Desenvolvedor Front-end
+
+GitHub: https://github.com/daniel-silva-dev
+
