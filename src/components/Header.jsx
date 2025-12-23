@@ -10,6 +10,7 @@ export default function Header({ lista }) {
           <li key={index} className="item">
             <span className="nome">{evento.nome}</span>
             <span className="hora">{evento.horario}</span>
+            <span className="hora">{evento.dia}</span>
           </li>
         ))
          }
