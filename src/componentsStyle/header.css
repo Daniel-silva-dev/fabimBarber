@@ -5,19 +5,22 @@
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* BANNER / IMAGEM */
 .banner {
   position: relative;
   width: 100%;
-  height: 100vh; /* NÃO DEPENDE DA LISTA */
+  min-height: 100vh;     /* ocupa a tela, MAS pode crescer */
+  height: auto;          /* MUITO IMPORTANTE */
   background-image: url("../imagens/banner.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding: 1.5rem;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* OVERLAY ESCURO */
@@ -26,16 +29,21 @@
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
 }
 
 /* LISTA DE HORÁRIOS */
 .lista {
-  position: relative; /* fica acima do overlay */
+  position: relative;
+  z-index: 1;
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
+  max-width: 900px;
+
+  /* ❌ REMOVE TODAS AS TRAVAS */
+  max-height: none;
+  overflow: visible;
 }
 
 /* ITEM DA LISTA */
@@ -62,19 +70,28 @@
   text-align: right;
 }
 
+.bloco-dia {
+  margin-top: 20px;
+}
+
+.titulo-dia {
+  color: #777777;
+  font-size: 1.4rem;
+  text-align: left;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 
 @media (max-width: 768px) {
   .banner {
-    height: 50vh;
+    min-height: 100vh;   /* continua ocupando tela */
   }
 
   .banner p {
     font-size: 1.8rem;
-  }
-
-  .lista {
-    max-height: calc(50vh - 100px);
   }
 }
 
@@ -95,4 +112,3 @@
     text-align: left;
   }
 }
-
