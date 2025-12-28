@@ -29,6 +29,11 @@
 .container select:focus {
   border-color: #555;
 }
+.erro {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+}
+
 
 /* Botão */
 .container button {

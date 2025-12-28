@@ -1,0 +1,137 @@
+/* ===== CONTAINER ===== */
+.admin-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== TÍTULO ===== */
+.admin-title {
+  font-size: 28px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ===== FILTROS ===== */
+.admin-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.admin-filtros input[type="date"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.admin-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ===== BOTÃO LIMPAR ===== */
+.admin-clean-btn {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.admin-clean-btn:hover {
+  opacity: 0.9;
+}
+
+/* ===== DIA ===== */
+.admin-dia {
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+/* ===== DATA ===== */
+.admin-data {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* ===== ITEM ===== */
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ===== INFO ===== */
+.admin-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-info strong {
+  font-size: 15px;
+}
+
+.admin-info span {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ===== BOTÃO CANCELAR ===== */
+.admin-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.admin-btn:hover {
+  opacity: 0.85;
+}
+
+/* ===== EMPTY ===== */
+.admin-empty {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  .admin-filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .admin-btn {
+    width: 100%;
+  }
+}

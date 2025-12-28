@@ -1,25 +1,20 @@
-//     <input
-//      type="date"
-//      value={diaSelecionado}
-//      onChange={(e) => setDiaSelecionado(e.target.value)} 
-
-
 import { useEffect, useState } from "react";
-import {
-  collection,
-  addDoc,
-  onSnapshot
-} from "firebase/firestore";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 
 import { db } from "./services/firebase";
+import { AuthProvider } from "./contexts/AuthContext"; // 👈 IMPORTANTE
+
 import Form from "./components/form";
 import Header from "./components/header";
+import Admin from "./pages/Admin";
+import Login from "./pages/Login";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
   const [lista, setLista] = useState([]);
   const [diaSelecionado, setDiaSelecionado] = useState("");
 
-  // 🔹 BUSCAR DADOS DO FIRESTORE (TEMPO REAL)
   useEffect(() => {
     const unsubscribe = onSnapshot(
       collection(db, "agendamentos"),
@@ -28,7 +23,6 @@ function App() {
           id: doc.id,
           ...doc.data(),
         }));
-
         setLista(dados);
       }
     );
@@ -36,13 +30,7 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  // 🔹 BLOQUEAR HORÁRIO + DIA IGUAIS
   async function novoEvento(evento) {
-    if (!evento.data || !evento.horario) {
-      alert("Data ou horário inválido");
-      return;
-    }
-
     const horarioJaExiste = lista.some(
       (item) =>
         item.data === evento.data &&
@@ -57,27 +45,50 @@ function App() {
     await addDoc(collection(db, "agendamentos"), evento);
   }
 
-  // 🔹 HORÁRIOS JÁ OCUPADOS NO DIA SELECIONADO
   const horariosBloqueados = diaSelecionado
-    ? lista
-        .filter((item) => item.data === diaSelecionado)
-        .map((item) => item.horario)
+    ? lista.filter((item) => item.data === diaSelecionado).map(i => i.horario)
     : [];
 
+
   return (
-    <>
-      <Header lista={lista.filter(item =>
-        diaSelecionado ? item.data === diaSelecionado : true
-      )} />
+    <AuthProvider> {/* 🔐 ENVOLVE TUDO */}
+      <BrowserRouter>
+        <Routes>
 
-      <Form
-        onSubmit={novoEvento}
-        diaSelecionado={diaSelecionado}
-        setDiaSelecionado={setDiaSelecionado}
-        horariosBloqueados={horariosBloqueados}
-      />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header
+                  lista={lista.filter(item =>
+                    diaSelecionado ? item.data === diaSelecionado : true
+                  )}
+                />
 
-    </>
+                <Form
+                  onSubmit={novoEvento}
+                  diaSelecionado={diaSelecionado}
+                  setDiaSelecionado={setDiaSelecionado}
+                  horariosBloqueados={horariosBloqueados}
+                />
+              </>
+            }
+          />
+
+          <Route path="/login" element={<Login />} />
+
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute>
+                <Admin />
+              </PrivateRoute>
+            }
+          />
+
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

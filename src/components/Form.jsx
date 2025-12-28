@@ -17,10 +17,25 @@ export default function Form({ onSubmit }) {
   const [horario, setHorario] = useState("");
   const [data, setData] = useState(""); // ✅ STATE DA DATA
 
+  function isDomingo(data) {
+  const [ano, mes, dia] = data.split("-");
+  const dataLocal = new Date(ano, mes - 1, dia);
+  return dataLocal.getDay() === 0;
+}
+
+
+
   function handleSubmit(e) {
     e.preventDefault();
 
+    
+  if (isDomingo(data)) {
+    alert("Não é possível agendar aos domingos.");
+    return;
+  }
+
     const novoEvento = {
+
       nome,
       horario,
       data, // ✅ ENVIANDO A DATA
@@ -65,6 +80,10 @@ export default function Form({ onSubmit }) {
             </option>
           ))}
         </select>
+        {data && isDomingo(data) && (
+          <p className="erro">Domingo não disponível para agendamento</p>
+        )}
+
 
         <button type="submit" className="btnSubmit">
           Adicionar
