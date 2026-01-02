@@ -41,7 +41,6 @@ export default function Header({ lista }) {
       {dias.map(dia => {
         const eventosDoDia = filtrarPorDia(dia.data);
 
-        if (eventosDoDia.length === 0) return null;
 
         return (
           <div key={dia.data} className="bloco-dia">

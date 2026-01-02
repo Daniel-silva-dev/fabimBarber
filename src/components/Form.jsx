@@ -57,7 +57,7 @@ export default function Form({
       nome,
       horario,
       data,
-      status: "ativo" // 🔥 NOVA REGRA
+      status: "ativo" 
     });
 
     setLoading(false);
@@ -97,7 +97,7 @@ export default function Form({
           value={data}
           onChange={(e) => {
             setData(e.target.value);
-            setDiaSelecionado(e.target.value); // 🔥 ESSENCIAL
+            setDiaSelecionado(e.target.value); 
             setHorario("");
           }}
           required

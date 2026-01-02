@@ -54,9 +54,6 @@ async function bloquearHorario() {
   setHorarioBloqueio("");
 }
 
-
-
-
   function isPassado(data) {
     const hoje = new Date();
     hoje.setHours(0, 0, 0, 0);
@@ -64,7 +61,6 @@ async function bloquearHorario() {
     return dataItem < hoje;
   }
 
-  // 🔥 ATUALIZA STATUS (NÃO DELETA)
   async function atualizarStatus(id, status) {
     const confirmar = window.confirm(
       `Deseja alterar o status para "${status}"?`
@@ -74,7 +70,6 @@ async function bloquearHorario() {
     await updateDoc(doc(db, "agendamentos", id), { status });
   }
 
-  // 🔥 FINALIZA AUTOMATICAMENTE DIAS PASSADOS
   async function finalizarDiasPassados() {
     const confirmar = window.confirm(
       "Deseja marcar todos os agendamentos passados como finalizados?"
@@ -104,7 +99,6 @@ async function bloquearHorario() {
     alert("Agendamentos passados finalizados com sucesso.");
   }
 
-  // 🔹 ESCUTA EM TEMPO REAL
   useEffect(() => {
     const q = query(
       collection(db, "agendamentos"),

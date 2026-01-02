@@ -1,4 +1,3 @@
-/* TEXTO DO TÍTULO */
 .banner p {
   color: #f1f1f1;
   text-align: center;
@@ -9,12 +8,12 @@
   z-index: 1;
 }
 
-/* BANNER / IMAGEM */
+
 .banner {
   position: relative;
   width: 100%;
-  min-height: 100vh;     /* ocupa a tela, MAS pode crescer */
-  height: auto;          /* MUITO IMPORTANTE */
+  min-height: 100vh;   
+  height: auto;          
   background-image: url("../imagens/banner.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -23,7 +22,6 @@
   box-sizing: border-box;
 }
 
-/* OVERLAY ESCURO */
 .banner::before {
   content: "";
   position: absolute;
@@ -32,7 +30,7 @@
   z-index: 0;
 }
 
-/* LISTA DE HORÁRIOS */
+
 .lista {
   position: relative;
   z-index: 1;
@@ -40,13 +38,10 @@
   padding: 0;
   margin: 0 auto;
   max-width: 900px;
-
-  /* ❌ REMOVE TODAS AS TRAVAS */
   max-height: none;
   overflow: visible;
 }
 
-/* ITEM DA LISTA */
 .item {
   display: flex;
   align-items: center;
@@ -58,7 +53,7 @@
   color: #f1f1f1;
 }
 
-/* COLUNAS FIXAS */
+
 .nome {
   width: 65%;
   font-weight: bold;
@@ -83,11 +78,25 @@
   z-index: 1;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+.header-empty {
+  padding: 24px;
+  text-align: center;
+  background: #111;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.header-empty p {
+  color: #999;
+  font-size: 14px;
+}
+
+
+
 
 @media (max-width: 768px) {
   .banner {
-    min-height: 100vh;   /* continua ocupando tela */
+    min-height: 100vh;
   }
 
   .banner p {

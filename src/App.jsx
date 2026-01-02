@@ -7,6 +7,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 import Form from "./components/form";
 import Header from "./components/header";
+import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import PrivateRoute from "./routes/PrivateRoute";
@@ -30,7 +31,6 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  // 🔥 CRIA EVENTO SEMPRE COMO ATIVO
   async function novoEvento(evento) {
     const existe = lista.some(
       (item) =>
@@ -49,7 +49,6 @@ function App() {
     return true;
   }
 
-  // 🔥 BLOQUEIA HORÁRIOS APENAS SE ATIVO OU BLOQUEADO
   const horariosBloqueados = diaSelecionado
     ? lista
         .filter(
@@ -81,6 +80,7 @@ function App() {
                   setDiaSelecionado={setDiaSelecionado}
                   horariosBloqueados={horariosBloqueados}
                 />
+                <Footer />
               </>
             }
           />
